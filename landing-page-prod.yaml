@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
       - name: compro-prod
-        image: hansenfernando/macross-compro:v1
+        image: hansenfernando/landing-prod:latest
         ports:
         - containerPort: 80
 ---
