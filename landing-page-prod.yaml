@@ -60,7 +60,7 @@ spec:
  #            serviceName: compro-svc-prod
  #            servicePort: 80
 
-apiVersion: networking.k8s.io/v1beta1
+apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   namespace: macross-prod
