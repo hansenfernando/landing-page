@@ -25,7 +25,7 @@ spec:
 kind: Service
 apiVersion: v1
 metadata:
-  namespace: macross-prod      
+  namespace: macross-prod       
   name: compro-svc-prod
 spec:
   selector:
@@ -37,25 +37,35 @@ spec:
 
 ---
 
+#apiVersion: networking.k8s.io/v1beta1
+#kind: Ingress
+#metadata:
+ # namespace: macross-prod
+ # name: compro-ingress-prod
+ # annotations:
+  #   kubernetes.io/ingress.class: "nginx"
+  #   nginx.ingress.kubernetes.io/affinity: "cookie"
+  #   nginx.ingress.kubernetes.io/session-cookie-name: "compro-prod-cookie"
+  #   nginx.ingress.kubernetes.io/session-cookie-expires: "86400"
+  #   nginx.ingress.kubernetes.io/session-cookie-max-age: "86400"
+  #   nginx.ingress.kubernetes.io/ssl-redirect: "false"
+  #   nginx.ingress.kubernetes.io/affinity-mode: persistent
+  #   nginx.ingress.kubernetes.io/session-cookie-hash: sha1
+#spec:
+ # rules:
+ # - host: hansen.hansenfernando.xyz      
+ #   http:
+ #     paths:
+ #       - backend:
+ #            serviceName: compro-svc-prod
+ #            servicePort: 80
+
 apiVersion: networking.k8s.io/v1beta1
 kind: Ingress
 metadata:
   namespace: macross-prod
   name: compro-ingress-prod
-  annotations:
-     kubernetes.io/ingress.class: "nginx"
-     nginx.ingress.kubernetes.io/affinity: "cookie"
-     nginx.ingress.kubernetes.io/session-cookie-name: "compro-prod-cookie"
-     nginx.ingress.kubernetes.io/session-cookie-expires: "86400"
-     nginx.ingress.kubernetes.io/session-cookie-max-age: "86400"
-     nginx.ingress.kubernetes.io/ssl-redirect: "false"
-     nginx.ingress.kubernetes.io/affinity-mode: persistent
-     nginx.ingress.kubernetes.io/session-cookie-hash: sha1
 spec:
-  rules:
-  - host: hansen.hansenfernando.xyz      
-    http:
-      paths:
-        - backend:
-             serviceName: compro-svc-prod
-             servicePort: 80
+  backend:
+    serviceName: compro-svc-prod
+    servicePort: 80
