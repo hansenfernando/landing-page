@@ -15,7 +15,8 @@ metadata:
 spec:
   replicas: 2
   selector:
-    app: compro-prod
+    matchLabels:
+      app: compro-prod
   template:
     metadata:
       labels:
