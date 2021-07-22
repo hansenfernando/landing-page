@@ -60,9 +60,9 @@ metadata:
      nginx.ingress.kubernetes.io/session-cookie-hash: sha1
 spec:
   rules:
-  - host: *      
+  - host: landingpage.hansenfernando.xyz
     http:
       paths:
-      - backend:
+       - backend:
           serviceName: compro-svc-prod
           servicePort: 80
