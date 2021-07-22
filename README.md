@@ -1,1 +1,1 @@
-Example landing page sekolah devops cilsy12
+Example landing page sekolah devops cilsy
